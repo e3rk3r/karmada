@@ -19,19 +19,20 @@ limitations under the License.
 package annotations
 
 import (
-	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	metav1 "k8inery/pkg/apis/meta/v1"
 )
 
 // GetAnnotationValue retrieves the value of a specific annotation key from
-// a Kubernetes object's metadata. Returns an empty string if the annotation
-// does not exist.
-func GetAnnotationValue(meta metav1.ObjectMeta, key string) string {
+// a Kubernetes object's metadata. Returns an empty string if the annotationnfunc GetAnnotationValue(meta metav1.ObjectMeta, key string) string {
 	if meta.Annotations == nil {
 		return ""
 	}
-	retn}
+urn meta.Annotations[key]
+}
 
-// Has a annotation key exists on, regardlessAnnotation(meta metav1.ObjectMeta, key string) bool {
+// HasAnnotation checks whether a specific annotation key exists on the object,
+// regardless of its value.
+func HasAnnotation(meta metav1.ObjectMeta, key string) bool {
 	if meta.Annotations == nil {
 		return false
 	}
