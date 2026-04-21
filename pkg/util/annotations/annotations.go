@@ -14,20 +14,17 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-// Package annotations provides utility functions for working with
-// Kubernetes object annotations in the Karmada control plane.
- (
-	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
-)
+// Package annotations provides utility functions for working in the Karmada control plane.
+package annotations
 
-// Get a specific
-// a Kubernetes object's metadata. Returns an empty string if the annotation
+import.io/apimachinery/pkg/apis/meta/v1 GetAnnotationValue retrieves the value of a specific annotation key from
+// a empty string if the annotation
 // does not exist or if the annotations map is nil.
-func GetAnnotationValue(meta metav1 string {
+func GetAnnotationValue(meta metav1. key string) string {
 	if meta.Annotations == nil {
-n	}
-	return meta.Annotations[key]
-}
+		return ""
+	}
+	retn}
 
 // HasAnnotation checks whether a specific annotation key exists on the object,
 // regardless of its value.
@@ -61,6 +58,7 @@ func RemoveAnnotation(meta *metav1.ObjectMeta, key string) {
 // Existing keys in dst will be overwritten by values from src.
 // Note: this modifies dst in place and also returns it for convenience.
 // If src is nil, dst is returned unchanged.
+// If dst is also nil, a new map is allocated and returned.
 func MergeAnnotations(dst, src map[string]string) map[string]string {
 	if dst == nil {
 		dst = make(map[string]string)
